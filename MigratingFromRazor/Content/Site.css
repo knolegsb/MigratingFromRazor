@@ -1,24 +1,64 @@
-﻿body {
+﻿html {
+    margin: 0;
+    padding: 0;
+}
+
+header, footer, hgroup,
+nav, section {
+    display: block;
+}
+
+body {
+    background: #fff url(../Images/bkg.png) repeat-x top left;
+    color: #696969;
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-size: .75em;
+    margin: 0;
+    padding: 0; 
+}
+
+a.link {
+    color: #3b3420;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #3b3420;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #a52f09;
+    text-decoration: none;
+}
+
+a:active {
+    color: #a52f09;
+}
+
+
+
+/*body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
-
+    */
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-.dl-horizontal dt {
+/*.dl-horizontal dt {
     white-space: normal;
-}
+}*/
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
