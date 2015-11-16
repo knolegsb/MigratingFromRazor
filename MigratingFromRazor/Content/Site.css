@@ -17,6 +17,9 @@ body {
     padding: 0; 
 }
 
+a {
+    text-decoration:none;
+}
 a.link {
     color: #3b3420;
     text-decoration: none;
@@ -174,6 +177,11 @@ div#featuredProduct img {
     float: left;
     margin: 10px 12px;
     width: 215px;
+}
+
+.product .productInfo{
+    height: 300px;
+    overflow: hidden;
 }
 
 .product h3 {
