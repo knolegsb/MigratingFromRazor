@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MigratingFromRazor.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,16 @@ namespace MigratingFromRazor.Controllers
     public class OrderController : Controller
     {
         // GET: Order
-        public ActionResult Index()
+        [Route("order/{id:int}")]
+        public ActionResult Index(int id)
         {
-            return View();
+            ViewBag.Title = "Place Your Order";
+            IProductsService service = new ProductsService();
+            OrderFormModel model = new OrderFormModel
+            {
+                Product = service.GetProduct(id)
+            };
+            return View(model);
         }
     }
 }

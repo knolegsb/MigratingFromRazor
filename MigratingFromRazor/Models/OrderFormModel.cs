@@ -8,10 +8,12 @@ namespace MigratingFromRazor.Models
 {
     public class OrderFormModel
     {
-        public int ProductId { get; set; }
+        public int Product { get; set; }
         public int OrderQty { get; set; }
+
         [Required]
         public string OrderShipping { get; set; }
+
         [Required(ErrorMessage ="You must provide an email address.")]
         public string OrderEmail { get; set; }
     }

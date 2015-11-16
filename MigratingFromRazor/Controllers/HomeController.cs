@@ -1,4 +1,5 @@
-﻿using MigratingFromRazor.Services;
+﻿using MigratingFromRazor.Models;
+using MigratingFromRazor.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,15 @@ namespace MigratingFromRazor.Controllers
         {
             ViewBag.Title = "Home";
             IProductService service = new ProductService();
-            ViewBag.Products = service.GetProducts();
-            ViewBag.Featured = ViewBag.Products[new Random().Next(ViewBag.Products.Count)];
-            return View();
+            //ViewBag.Products = service.GetProducts();
+            //ViewBag.Featured = ViewBag.Products[new Random().Next(ViewBag.Products.Count)];
+            //return View();
+
+            HomeViewModel model = new HomeViewModel
+            {
+                Products = service.GetProducts()
+            };
+            return View(model);
         }
 
         public ActionResult About()

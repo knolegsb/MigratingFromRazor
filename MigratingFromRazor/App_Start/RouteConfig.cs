@@ -13,6 +13,8 @@ namespace MigratingFromRazor
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "About",
                 url: "about",
@@ -24,6 +26,13 @@ namespace MigratingFromRazor
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                "Order",
+                "order/{id}",
+                new { controller = "Order", action = "Index" },
+                constraints: new { id = "\\d+" }
+           );
         }
     }
 }
