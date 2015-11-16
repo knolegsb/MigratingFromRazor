@@ -1,8 +1,51 @@
 ﻿@model MigratingFromRazor.Models.OrderFormModel
 
-@{
-    ViewBag.Title = "Index";
-}
+<ol id="orderProcess">
+    <li><span class="step-number">1</span>Choose Item</li>
+    <li class="current"><span class="step-number">2</span>Details &amp; Submit</li>
+    <li><span class="step-number">3</span>Receipt</li>
+</ol>
+<h1>Place Your Order: @Model.Product.Name</h1>
+<form action="" method="post">
+    @Html.ValidationSummary()
 
-<h2>Index</h2>
-
+    <fieldset class="no-legged">
+        <legend>Place Your Order</legend>
+        <img class="product-image order-image" src="~/Images/Products/Thumbnails/@Model.Product.ImageName" alt="Image of @Model.Product.Name" />
+        <ul class="orderPageList" data-role="listview">
+            <li>
+                <div>
+                    <p class="description">@Model.Product.Description</p>
+                </div>
+            </li>
+            <li class="email">
+                <div class="fieldcontainer" data-role="fieldcontain">
+                    <label for="orderEmail">Your Email Address</label>
+                    @Html.TextBoxFor(m => m.OrderEmail)
+                    <div>@Html.ValidationMessageFor(m => m.OrderEmail)</div>
+                </div>
+            </li>
+            <li class="shipping">
+                <div class="fieldcontainer" data-role="fieldcontain">
+                    <label for="orderShipping">Shipping Address</label>
+                    @Html.TextAreaFor(m => m.OrderShipping, new { rows = 4 })
+                    <div>@Html.ValidationMessageFor(m => m.OrderShipping)</div>
+                </div>
+            </li>
+            <li class="quantity">
+                <div class="fieldcontainer" data-role="fieldcontain">
+                    <label for="orderQty">Quantity</label>
+                    <input type="text" id="orderQty" name="orderQty" value="1" />
+                    x
+                    <span id="orderPrice">@string.Format("{0:f}", Model.Product.Price)</span>
+                    =
+                    <span id="orderTotal">@string.Format("{0:f}", Model.Product.Price)</span>
+                </div>
+            </li>
+        </ul>
+        <p class="actions">
+            <input type="hidden" name="Product.Id" value="@Model.Product.Id" />
+            <input type="submit" value="Place Order" data-role="none" data-inline="true" />
+        </p>
+    </fieldset>
+</form>

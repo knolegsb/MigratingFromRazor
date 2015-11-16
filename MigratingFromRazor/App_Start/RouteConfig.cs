@@ -27,12 +27,12 @@ namespace MigratingFromRazor
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
-                "Order",
-                "order/{id}",
-                new { controller = "Order", action = "Index" },
-                constraints: new { id = "\\d+" }
-           );
+           // routes.MapRoute(
+           //     "Order",
+           //     "order/{id}",
+           //     new { controller = "Order", action = "Index" },
+           //     constraints: new { id = "\\d+" }
+           //);
         }
     }
 }
