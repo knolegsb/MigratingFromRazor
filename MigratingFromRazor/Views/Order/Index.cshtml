@@ -49,3 +49,28 @@
         </p>
     </fieldset>
 </form>
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    <script type="text/javascript">
+        $(function () {
+            var price = parseFloat($("#orderPrice").text()).toFixed(2),
+                total = $("#orderTotal"),
+                orderQty = $("#orderQty");
+
+            orderQty.change(function () {
+                var quantity = parseInt(orderQty.val());
+                if (!quantity || quantity < 1) {
+                    orderQty.val(1);
+                    quantity = 1;
+                }
+                else if (quantity.toString() !== orderQty.val()) {
+                    orderQty.val(quantity);
+                }
+                total.text("$" + (price * quantity).toFixed(2));
+            });
+        });
+    </script>    
+}
